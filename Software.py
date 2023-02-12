@@ -2,11 +2,8 @@ import guizero as gz
 import tkinter as tk
 from tkinter.ttk import Combobox
 import os, time, configparser
-wdir = os.path.dirname(os.path.abspath("Software.py"))
-os.chdir(wdir)
 from realtime import realtime
 from videofile import videofile
-from threading import Thread, Event
 
 
 class Software():
@@ -189,7 +186,7 @@ class Software():
             self.NomBrowser.visible = True
 
     def browseOutputFiles(self): # Gestion du navigateur permettant de choisir les fichiers de sortie
-        filename = tk.filedialog.askopenfilename(initialdir = os.path.dirname(os.path.abspath("Software.py")), title = "Sélectionner un fichier", filetypes = (("Fichier Excel", "*.xlsx"),("Fichier CSV","*.csv")))
+        filename = tk.filedialog.askopenfilename(initialdir = os.getcwd(), title = "Sélectionner un fichier", filetypes = (("Fichier Excel", "*.xlsx"),("Fichier CSV","*.csv")))
         self.path.set(filename)
 
 
@@ -197,7 +194,7 @@ class Software():
         self.path['values'] = self.PathList
 
     def browseVideoFiles(self): # Gestion du navigateur permettant de choisir les fichiers vidéo (le cas échéant)
-        filename = tk.filedialog.askopenfilename(initialdir = os.path.dirname(os.path.abspath("Software.py")), title = "Sélectionner un fichier", filetypes = (("Fichier MP4", "*.mp4"),("Fichier AVI", "*.avi"), ("Fichier MKV", "*.mkv"), ("Fichier MOV","*.mov"), ("Fichier TS", "*.ts"), ("Fichier WMV", "*.wmv")))
+        filename = tk.filedialog.askopenfilename(initialdir = os.getcwd(), title = "Sélectionner un fichier", filetypes = (("Fichier MP4", "*.mp4"),("Fichier AVI", "*.avi"), ("Fichier MKV", "*.mkv"), ("Fichier MOV","*.mov"), ("Fichier TS", "*.ts"), ("Fichier WMV", "*.wmv")))
         self.nom.set(filename)
 
 

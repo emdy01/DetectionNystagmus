@@ -1,9 +1,5 @@
 from time import *
 import cv2, os
-
-
-wdir = os.path.dirname(os.path.abspath("realtime.py"))
-os.chdir(wdir)
 from GlobalTools import GlobalTools
 
 class realtime(GlobalTools):

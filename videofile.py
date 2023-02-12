@@ -1,8 +1,6 @@
 from moviepy.editor import VideoFileClip as vfc
 import cv2, os
 from time import *
-wdir = os.path.dirname(os.path.abspath("videofile.py"))
-os.chdir(wdir)
 from GlobalTools import GlobalTools
 
 class videofile(GlobalTools):
@@ -14,8 +12,10 @@ class videofile(GlobalTools):
         GlobalTools.__init__(self)
         self.video = os.path.basename(WFilePath) # nom du fichier vidéo
         self.cap = cv2.VideoCapture(WFilePath) # upload du fichier vidéo
+        os.chdir(os.path.dirname(WFilePath)) # changement de  répertoire courant (nécessaire au bon fonctionnement de la bibliothèque MoviePy)
         self.wdir = OutputPath
         self.time = 0 # contiendra la durée de la vidéo
+
 
 
     def read(self):
