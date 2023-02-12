@@ -1,8 +1,6 @@
 from GazeTracking.gaze_tracking.GazeTracker import GazeTracker as gt
 import os, numpy, csv, cv2
 import xlsxwriter as xl
-wdir = os.path.dirname(os.path.abspath("GlobalTools.py"))
-os.chdir(wdir)
 from SaccadeRecognition import SaccadeRecognition
 
 class GlobalTools():
@@ -152,7 +150,7 @@ class GlobalTools():
             OD = file.add_worksheet("Oeil droit") # Feuille de résultats pour l'oeil droit
 
             OG.write(0,0,"Taux de détection")
-            OG.write(0,1,self.DetectionRate)$
+            OG.write(0,1,self.DetectionRate)
             # En-têtes
             OG.write(2,0,"Début de la saccade (ms)")
             OG.write(2,1,"Fin de la saccade (ms)")
